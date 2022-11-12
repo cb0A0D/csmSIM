@@ -7,15 +7,17 @@
             bool mainLoop = true;
             long loopCount = 0;
             long loopCountMax = 5;
-            while (mainLoop = true)
+            while (mainLoop = true) // Feature #1 : Main Loop
             {
-                if (loopCount == loopCountMax)
+                if (loopCount >= loopCountMax) // Main Loop break #1
                 {
                     mainLoop = false;
+                } else
+                {
+                    loopCount = loopCount + 1;
+                    Console.WriteLine(loopCount.ToString());
+                    Console.WriteLine("Hello, World!");
                 }
-                loopCount++;
-                Console.WriteLine("Hello, World!");
-
             }
         }
     }
