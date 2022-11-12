@@ -7,7 +7,7 @@
             Logger logger = new Logger();
             bool mainLoop = true;
             long loopCount = 0;
-            long loopCountMax = 5;
+            long loopCountMax = 50;
             while (mainLoop == true) // Feature #1 : Main Loop
             {
                 if (loopCount >= loopCountMax) // Main Loop break #1
@@ -16,8 +16,7 @@
                 } else
                 {
                     loopCount = loopCount + 1;
-                    logger.Info("Hello, World!");
-                    logger.Error("Simulated Error");
+                    // TODO : Add API
                 }
             }
         } // End Main
