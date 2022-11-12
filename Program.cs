@@ -4,10 +4,11 @@
     {
         static void Main(string[] args)
         {
+            Logger logger = new Logger();
             bool mainLoop = true;
             long loopCount = 0;
             long loopCountMax = 5;
-            while (mainLoop = true) // Feature #1 : Main Loop
+            while (mainLoop == true) // Feature #1 : Main Loop
             {
                 if (loopCount >= loopCountMax) // Main Loop break #1
                 {
@@ -15,10 +16,9 @@
                 } else
                 {
                     loopCount = loopCount + 1;
-                    Console.WriteLine(loopCount.ToString());
-                    Console.WriteLine("Hello, World!");
+                    logger.Info("Hello, World!");
                 }
             }
-        }
+        } // End Main
     }
 }

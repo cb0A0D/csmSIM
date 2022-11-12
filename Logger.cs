@@ -9,16 +9,17 @@ public class Logger
 	public Logger()
 	{
 		verbose = true;
-        this.WriteLine("Logger");
     }
 	public Logger(bool verboseFlag)
 	{
 		verbose = verboseFlag;
-        this.WriteLine("Logger");
     }
 	private void WriteLine(string input)
 	{
-		
 		Console.WriteLine(input);
+	}
+    public void Info(string input)
+	{
+		this.WriteLine(input);
 	}
 }
