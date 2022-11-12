@@ -1,8 +1,11 @@
 # csmSIM
-Aggregate user data for storage, and additional downstream order processing.
+
+This application keeps track of Customer Data. Its' purpose is to Aggregate user data for storage, and additional downstream order processing.
+It will implement several features: Primary Loop; Logging out to a file; Regular Expressions for phone number formats; API input.
 
 Feature List
-* Primary Loop
-* Log File
-* RegEx phone number or email format
-* API
+* Primary Loop : Uses a boolean flag, and loop counter to determine if running is appropriate. 
+* Log File : Custom Logger function created to handle logging to screen and file.
+* Regular Expressions will pattern match phone numbers and e-mail addresses. 
+* API - Uses a 3rd Party API to retreive random user data.
+  * https://randomuser.me/api/

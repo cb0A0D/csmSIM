@@ -17,6 +17,7 @@
                 {
                     loopCount = loopCount + 1;
                     logger.Info("Hello, World!");
+                    logger.Error("Simulated Error");
                 }
             }
         } // End Main
