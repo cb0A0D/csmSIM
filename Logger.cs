@@ -6,49 +6,71 @@ using static System.Net.Mime.MediaTypeNames;
 public class Logger
 {
 	private bool verbose;
-	private string infoFile = "info.log";
-	private string errorFile = "error.log";
+    private string infoFile = "log_info_default.txt";
+    private string errorFile = "log_error_default.txt";
 
+    private void updateLogFiles()
+    {
+        this.infoFile = "log_info_[" + DateTime.Now.ToString("yyyy-MM-dd") + "].txt";
+        this.errorFile = "log_error_[" + DateTime.Now.ToString("yyyy-MM-dd") + "].txt";
+    }
     public Logger()
 	{
 		verbose = false;
+        this.updateLogFiles();
     }
 	public Logger(bool verboseFlag)
 	{
 		verbose = verboseFlag;
+        this.updateLogFiles();
     }
-	private void WriteLine(string input)
-	{
-		Console.WriteLine(input);
-	}
-
-    public void Info(string input)
-	{
-		this.outPut(input);
-		this.writeToFile(this.infoFile, input);
+    private string DateTimeStamp()
+    {
+        return DateTime.Now.ToString("yyyy-MM-dd; HH:mm:ss.ffff :::");
+    }
+    private string TimeStampString(string input)
+    {
+        return DateTimeStamp() + " " + input;
+    }
+    private void WriteLine(string[] input)
+    {
+        foreach (string line in input)
+        {
+            this.WriteLine(line);
+        }
     }
 
     public void Info(string[] input)  //handles array of strings input
     {
         foreach (string line in input)
         {
-            this.outPut(line);
-            this.writeToFile(this.infoFile, line);
+            this.Info(line);
         }
 
-    }
-    public void Error(string input)
-    {
-        this.outPut(input);
-        this.writeToFile(this.errorFile, input);
     }
     public void Error(string[] input) //handles array of strings input
     {
         foreach (string line in input)
         {
-            this.outPut(line);
-            this.writeToFile(this.errorFile, line);
+            this.Error(line);
         }
+    }
+    private void WriteLine(string input)
+    {
+        Console.WriteLine(input);
+    }
+    public void Info(string input)
+	{
+        input = TimeStampString(input);
+        this.outPut(input);
+		this.writeToFile(this.infoFile, input);
+    }
+
+    public void Error(string input)
+    {
+        input = TimeStampString(input);
+        this.outPut(input);
+        this.writeToFile(this.errorFile, input);
     }
 
     private void outPut(string input)
@@ -61,6 +83,8 @@ public class Logger
 
     private async void writeToFile(string file, string input)
     {
+        this.updateLogFiles();
+
         using StreamWriter outFile = new(file, append: true);
         await outFile.WriteLineAsync(input);
     }
