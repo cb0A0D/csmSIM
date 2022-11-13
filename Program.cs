@@ -5,6 +5,7 @@ namespace csmSIM
 {
     internal class Program
     {
+        // emailRegEx = $"^((\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)\s*[;]{0,1}\s*)+$";
         static void TestLogging(Logger logger)
         {
             logger.Info("Hello, World!");
@@ -17,10 +18,10 @@ namespace csmSIM
             while ( goodAnswer == false)
             {
                 string userQuestion = "Exit Program? [Y|N]:";
-                logger.Info($"Asking User Question [{userQuestion}]");
+                logger.Info($"User Query:[{userQuestion}]");
                 Console.Write($"{userQuestion}");
                 string userInput = Console.ReadLine().ToUpper();
-                logger.Info($"UserInput:[{userInput}]");
+                logger.Info($"User Response:[{userInput}]");
                 switch (userInput)
                 {
                     case "Y":
@@ -46,6 +47,7 @@ namespace csmSIM
         static void Main(string[] args)
         {
             //Logger logs to the execution path
+            User user = new User(); // Accepts User Input
             Logger logger = new Logger();
             logger.Info("Starting Program");
             
