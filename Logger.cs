@@ -49,6 +49,7 @@ public class Logger
         this.Info($"User Query:[{question}]");
         Console.Write(question);
         answer = Console.ReadLine();
+        if (answer == null) { answer = ""; }
         this.Info($"\t\tUser Response:[{answer}]");
         this.Info($"User Query:[{question}; User Response:[{answer}]");
         if (answer == null)
@@ -76,6 +77,12 @@ public class Logger
     private void WriteLine(string input)
     {
         Console.WriteLine(input);
+    }
+
+    public void Print(string input)
+    {
+        this.WriteLine(input);
+        this.Info(input);
     }
     public void Info(string input)
 	{
