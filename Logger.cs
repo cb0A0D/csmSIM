@@ -8,10 +8,12 @@ public class Logger
 	private bool verbose;
     private string infoFile = "log_info_default.txt";
     private string errorFile = "log_error_default.txt";
+    private string debugFile = "log_debug_default.txt";
 
     private void updateLogFiles()
     {
         this.infoFile = "log_info_[" + DateTime.Now.ToString("yyyy-MM-dd") + "].txt";
+        this.debugFile = "log_debug_[" + DateTime.Now.ToString("yyyy-MM-dd") + "].txt";
         this.errorFile = "log_error_[" + DateTime.Now.ToString("yyyy-MM-dd") + "].txt";
     }
     public Logger()
@@ -38,6 +40,22 @@ public class Logger
         {
             this.WriteLine(line);
         }
+    }
+
+    public string Question(string? question)
+    {
+        string answer;
+        answer = "";
+        this.Info($"User Query:[{question}]");
+        Console.Write(question);
+        answer = Console.ReadLine();
+        this.Info($"\t\tUser Response:[{answer}]");
+        this.Info($"User Query:[{question}; User Response:[{answer}]");
+        if (answer == null)
+        {
+            answer = "";
+        }
+        return answer;
     }
 
     public void Info(string[] input)  //handles array of strings input
@@ -72,7 +90,12 @@ public class Logger
         this.outPut(input);
         this.writeToFile(this.errorFile, input);
     }
-
+    public void Debug(string input)
+    {
+        input = TimeStampString(input);
+        this.outPut(input);
+        this.writeToFile(this.debugFile, input);
+    }
     private void outPut(string input)
     {
         if (verbose == true)
