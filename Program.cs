@@ -1,66 +1,104 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 
 namespace csmSIM
 {
     internal class Program
     {
+        //private List<User> userList = new List<User>();
         // emailRegEx = $"^((\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)\s*[;]{0,1}\s*)+$";
         static void TestLogging(Logger logger)
         {
-            logger.Info("Hello, World!");
-            logger.Error("Simulated Error");
+            logger.Info("Simulated Information Message Logging!");
+            logger.Debug("Simulated Debug Message Logging!");
+            logger.Error("Simulated Error Message Logging!");
         }
-        static bool RunProgram(Logger logger)
+        //static bool RunProgram(Logger logger)
+        //{
+        //    bool continueMainLoop = true;
+        //    //bool goodAnswer = false;
+        //    bool returnValue = true;
+        //    while (continueMainLoop == true)
+        //    {
+        //        Console.WriteLine("Enter New User Information");
+        //        User user = new User(logger);
+        //        userList.Add(user);
+        //        Console.WriteLine($"userList contains ({userList.Count}) records");
+        //        returnValue = ExitProgramMenu(logger);
+        //    }
+        //    return returnValue;
+
+        //}
+
+        static bool ExitProgramMenu(Logger logger)
         {
+            Console.WriteLine();
+            bool continueMainLoop = true;
             bool goodAnswer = false;
-            bool returnValue = true;
-            while ( goodAnswer == false)
+            while (goodAnswer == false)
             {
                 string userQuestion = "Exit Program? [Y|N]:";
                 logger.Info($"User Query:[{userQuestion}]");
                 Console.Write($"{userQuestion}");
-                string userInput = Console.ReadLine().ToUpper();
+                string userInput = Console.ReadLine();
+                userInput = userInput.ToUpper();
+                if (userInput == null) { userInput = ""; }
                 logger.Info($"User Response:[{userInput}]");
                 switch (userInput)
                 {
                     case "Y":
                         logger.Info($"User Input [{userInput}] is Valid. Exiting Menu. Exiting Program.");
                         goodAnswer = true;
-                        returnValue = false;
+                        continueMainLoop = false;
                         break;
                     case "N":
                         logger.Info($"User Input [{userInput}] is Valid. Exiting Menu. Continue Program");
                         goodAnswer = true;
-                        returnValue = true;
+                        continueMainLoop = true;
                         break;
                     default:
                         logger.Info($"User Input [{userInput}] is InValid. Showing Menu again.");
                         Console.WriteLine($"Input[{userInput}] is Invalid. Try again.");
+                        goodAnswer = false;
                         break;
 
                 }
             }
-            return returnValue;
-
+            Console.WriteLine();
+            return continueMainLoop;
         }
         static void Main(string[] args)
         {
             //Logger logs to the execution path
-            User user = new User(); // Accepts User Input
+            List<User> userList = new List<User>();
             Logger logger = new Logger();
             logger.Info("Starting Program");
+
             
             bool mainLoop = true;
             while (mainLoop == true) // Feature #1 : Main Loop
             {
+                bool continueMainLoop = true;
+                Console.WriteLine("Enter New User Information\n");
                 // TODO : Add API
-                mainLoop = RunProgram(logger);
-                if (mainLoop == false)
+                User user = new User("a@b.c", "01234567890");
+                userList.Add(user);
+
+                logger.Print(":::::\tUSER RECORD SUMMARY\t:::::\n");
+                Console.WriteLine($"User Records({userList.Count})\n");
+                for ( int i = 0; i< userList.Count; i++)
                 {
-                    logger.Info("Exiting Application");
+                    int positionDisplay = i + 1;
+                    logger.Print($"User Record [{positionDisplay}]");
+                    logger.Print($"\tUser Email:{userList[i].Email}");
+                    logger.Print($"\tUser Phone#:{userList[i].PhoneNumber}");
                 }
+                // Query User: Exit Program?
+                mainLoop = ExitProgramMenu(logger);
             }
+            logger.Info("Exiting Application");
         } // End Main
     }
 }
