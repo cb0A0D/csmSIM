@@ -8,4 +8,9 @@ Feature List
 * [x] Log File : Custom Logger function created to handle logging to screen and file.
 * [ ] API - Uses a 3rd Party API to retreive random user data.
   * https://randomuser.me/api/
-* [ ] Regular Expressions will pattern match phone numbers and e-mail addresses. 
+* [x] Regular Expressions will pattern match phone numbers and e-mail addresses. 
+* [x] Use of List or Dictionary
+  * [x] List
+    * [x] Add value to List
+    * [x] Retreive Values from List
+    * [x] Utilize List Values
