@@ -81,7 +81,7 @@ namespace csmSIM
             while (mainLoop == true) // Feature #1 : Main Loop
             {
                 bool continueMainLoop = true;
-                Console.WriteLine("Enter New User Information\n");
+                Console.WriteLine("Entering New User Information\n");
                 // TODO : Add API
                 User user = new User("a@b.c", "01234567890");
                 userList.Add(user);
