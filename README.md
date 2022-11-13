@@ -19,7 +19,7 @@ It will implement several features: Primary Loop; Logging out to a file; Regular
 * [ ] Read data from JSON file
 
 ## Environment Setup
-*. Create a new C# command line program
+* Create a new C# command line program
   * .Net 6.0
   * Not Using Top Level Statements
 * Copy the files from this repo into that folder
