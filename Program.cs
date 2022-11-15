@@ -83,7 +83,9 @@ namespace csmSIM
                 bool continueMainLoop = true;
                 Console.WriteLine("Entering New User Information\n");
                 // TODO : Add API
-                User user = new User("a@b.c", "01234567890");
+                //User user = new User("a@b.c", "01234567890");
+                User user = new User();
+                user.GetUserInput();
                 userList.Add(user);
 
                 logger.Print(":::::\tUSER RECORD SUMMARY\t:::::\n");

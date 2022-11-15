@@ -103,7 +103,6 @@ public class User
 	{
 		this.logger = logger;
 		this.loggerSet = true;
-        this.UserMain();
     }
 	public User()
 	{
@@ -112,7 +111,11 @@ public class User
             this.logger = new Logger();
             this.loggerSet = true;
         }
-        this.UserMain();
+    }
+
+    public void GetUserInput()
+    {
+        UserMain();
     }
 
     public User(string emailInput="", string phoneInput = "")
