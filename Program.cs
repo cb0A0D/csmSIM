@@ -10,31 +10,14 @@ namespace csmSIM
 {
     internal class Program
 
-{
-        //private List<User> userList = new List<User>();
-        // emailRegEx = $"^((\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)\s*[;]{0,1}\s*)+$";
+    {
+
         static void TestLogging(Logger logger)
         {
             logger.Info("Simulated Information Message Logging!");
             logger.Debug("Simulated Debug Message Logging!");
             logger.Error("Simulated Error Message Logging!");
         }
-        //static bool RunProgram(Logger logger)
-        //{
-        //    bool continueMainLoop = true;
-        //    //bool goodAnswer = false;
-        //    bool returnValue = true;
-        //    while (continueMainLoop == true)
-        //    {
-        //        Console.WriteLine("Enter New User Information");
-        //        User user = new User(logger);
-        //        userList.Add(user);
-        //        Console.WriteLine($"userList contains ({userList.Count}) records");
-        //        returnValue = ExitProgramMenu(logger);
-        //    }
-        //    return returnValue;
-
-        //}
 
         static bool ExitProgramMenu(Logger logger)
         {
