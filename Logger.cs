@@ -88,20 +88,20 @@ public class Logger
 	{
         input = TimeStampString(input);
         this.outPut(input);
-		this.writeToFile(this.infoFile, input);
+		this.WriteToFile(this.infoFile, input);
     }
 
     public void Error(string input)
     {
         input = TimeStampString(input);
         this.outPut(input);
-        this.writeToFile(this.errorFile, input);
+        this.WriteToFile(this.errorFile, input);
     }
     public void Debug(string input)
     {
         input = TimeStampString(input);
         this.outPut(input);
-        this.writeToFile(this.debugFile, input);
+        this.WriteToFile(this.debugFile, input);
     }
     private void outPut(string input)
     {
@@ -111,7 +111,7 @@ public class Logger
         }
     }
 
-    private async void writeToFile(string file, string input)
+    private async void WriteToFile(string file, string input)
     {
         this.updateLogFiles();
 

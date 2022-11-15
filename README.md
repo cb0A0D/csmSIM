@@ -12,11 +12,13 @@ It will implement several features: Primary Loop; Logging out to a file; Regular
     * [x] Add value to List
     * [x] Retreive Values from List
     * [x] Utilize List Values
+* [x] Archive Data to CSV
 
  ## TODO Feature List
 * [ ] API - Uses a 3rd Party API to retreive random user data.
   * https://randomuser.me/api/
 * [ ] Read data from JSON file
+
 
 ## Environment Setup
 * Create a new C# command line program

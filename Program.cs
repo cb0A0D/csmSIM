@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System.IO;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using static System.Net.WebRequestMethods;
 
 namespace csmSIM
 {
     internal class Program
-    {
+
+{
         //private List<User> userList = new List<User>();
         // emailRegEx = $"^((\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)\s*[;]{0,1}\s*)+$";
         static void TestLogging(Logger logger)
@@ -90,15 +94,26 @@ namespace csmSIM
 
                 logger.Print(":::::\tUSER RECORD SUMMARY\t:::::\n");
                 Console.WriteLine($"User Records({userList.Count})\n");
-                for ( int i = 0; i< userList.Count; i++)
-                {
-                    int positionDisplay = i + 1;
-                    logger.Print($"User Record [{positionDisplay}]");
-                    logger.Print($"\tUser Email:{userList[i].Email}");
-                    logger.Print($"\tUser Phone#:{userList[i].PhoneNumber}");
-                }
+
+
                 // Query User: Exit Program?
                 mainLoop = ExitProgramMenu(logger);
+            }
+            var archiveFile = new StreamWriter(@"csmArchive.csv", append: true);
+            string lineOut = "";
+            for (int i = 0; i < userList.Count; i++)
+            {
+                lineOut = "";
+                int positionDisplay = i + 1;
+                logger.Print($"User Record [{positionDisplay}]");
+                logger.Print($"\tUser Email:{userList[i].Email}");
+                logger.Print($"\tUser Phone#:{userList[i].PhoneNumber}");
+                lineOut = $"{userList[i].Email},{userList[i].PhoneNumber}";
+                //await outFile.WriteLineAsync(lineOut);
+                archiveFile.WriteLine(lineOut);
+                archiveFile.Flush();
+
+
             }
             logger.Info("Exiting Application");
         } // End Main
