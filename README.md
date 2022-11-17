@@ -6,15 +6,16 @@ This application keeps track of Customer Data. Its' purpose is to intake user da
 REQUIREMENTS
 ## README.md
 * [x] A one paragraph or longer description of the project
+
 ## Class Creation
-* [x] Create one Class
-* [x] Create at least one object of that class
-* [x] Populate that object with data
-* [x] Use, or Display the data in your application
+* [x] Create one Class : User.cs
+* [x] Create at least one object of that class : Program.cs
+* [x] Populate that object with data : Program.cs
+* [x] Use, or Display the data in your application : Program.cs
 
 ## Function or Method Creation
-* [x] Create at least 3 Functions or Methods
-* [x] Call those three Functions or Methods, at least one of which must return a valute that is used in your application
+* [x] Create at least 3 Functions or Methods : Logger
+* [x] Call those three Functions or Methods, at least one of which must return a valute that is used in your application : Logger/User
 
 
 ## Completed Feature List
