@@ -1,7 +1,21 @@
 # csmSIM
 
-This application keeps track of Customer Data. Its' purpose is to Aggregate user data for storage, and additional downstream order processing.
-It will implement several features: Primary Loop; Logging out to a file; Regular Expressions for phone number formats; API input.
+This application keeps track of Customer Data. Its' purpose is to intake user data; then store that data. Afterwards that data should be interactable. It will implement several features: Primary Loop; Logging out to a file; Regular Expressions for phone number formats; Populating a List.
+
+
+REQUIREMENTS
+## README.md
+* [x] A one paragraph or longer description of the project
+## Class Creation
+* [x] Create one Class
+* [x] Create at least one object of that class
+* [x] Populate that object with data
+* [x] Use, or Display the data in your application
+
+## Function or Method Creation
+* [x] Create at least 3 Functions or Methods
+* [x] Call those three Functions or Methods, at least one of which must return a valute that is used in your application
+
 
 ## Completed Feature List
 * [x] Primary Loop : Uses a boolean flag, and loop counter to determine if running is appropriate. 
