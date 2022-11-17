@@ -1,6 +1,6 @@
 # csmSIM
 
-This application keeps track of Customer Data. Its' purpose is to intake user data; then store that data. Afterwards that data should be interactable. It will implement several features: Primary Loop; Logging out to a file; Regular Expressions for phone number formats; Populating a List.
+This application keeps track of Customer Data. Its' purpose is to intake user data; then store that data. Afterwards that data should be interactable. It will implement several features: Primary Loop; Logging out to a file; Regular Expressions for phone number formats; Populating a List; Writing data to CSV
 
 
 REQUIREMENTS
@@ -17,7 +17,6 @@ REQUIREMENTS
 * [x] Create at least 3 Functions or Methods : Logger
 * [x] Call those three Functions or Methods, at least one of which must return a valute that is used in your application : Logger/User
 
-
 ## Completed Feature List
 * [x] Primary Loop : Uses a boolean flag, and loop counter to determine if running is appropriate. 
 * [x] Log File : Custom Logger function created to handle logging to screen and file.
@@ -28,12 +27,6 @@ REQUIREMENTS
     * [x] Retreive Values from List
     * [x] Utilize List Values
 * [x] Archive Data to CSV
-
- ## TODO Feature List
-* [ ] API - Uses a 3rd Party API to retreive random user data.
-  * https://randomuser.me/api/
-* [ ] Read data from JSON file
-
 
 ## Environment Setup
 * Create a new C# command line program
